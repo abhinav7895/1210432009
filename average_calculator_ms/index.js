@@ -65,9 +65,17 @@ app.get('/numbers/:numberid', async (req, res) => {
         const response = await fetch(url, {
             signal: controller.signal,
             headers: {
-                'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzI0MTYzNzcxLCJpYXQiOjE3MjQxNjM0NzEsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6ImUyNWMxNTY1LTUwNGQtNDc1Yi04NzI0LTcyY2M3ODBiOTk2NyIsInN1YiI6ImFiaGluYXZheTIwMDNAYmJkdS5hYy5pbiJ9LCJjb21wYW55TmFtZSI6ImdvTWFydCIsImNsaWVudElEIjoiZTI1YzE1NjUtNTA0ZC00NzViLTg3MjQtNzJjYzc4MGI5OTY3IiwiY2xpZW50U2VjcmV0IjoidkRmeUVaVkhobGJPdWxLdCIsIm93bmVyTmFtZSI6IkFiaGluYXYgWWFkYXYiLCJvd25lckVtYWlsIjoiYWJoaW5hdmF5MjAwM0BiYmR1LmFjLmluIiwicm9sbE5vIjoiMTIxMDQzMjAwOSJ9.TogRE8YhlaUpyrwAbUm7hfvICEyWtELd4BKINTbuN3A`
+                'Authorization': `Bearer ${token}`
             }
         });
+
+        // const response = await fetch(url, {
+        //     signal: controller.signal,
+        //     headers: {
+        //         'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzI0MTYzNzcxLCJpYXQiOjE3MjQxNjM0NzEsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6ImUyNWMxNTY1LTUwNGQtNDc1Yi04NzI0LTcyY2M3ODBiOTk2NyIsInN1YiI6ImFiaGluYXZheTIwMDNAYmJkdS5hYy5pbiJ9LCJjb21wYW55TmFtZSI6ImdvTWFydCIsImNsaWVudElEIjoiZTI1YzE1NjUtNTA0ZC00NzViLTg3MjQtNzJjYzc4MGI5OTY3IiwiY2xpZW50U2VjcmV0IjoidkRmeUVaVkhobGJPdWxLdCIsIm93bmVyTmFtZSI6IkFiaGluYXYgWWFkYXYiLCJvd25lckVtYWlsIjoiYWJoaW5hdmF5MjAwM0BiYmR1LmFjLmluIiwicm9sbE5vIjoiMTIxMDQzMjAwOSJ9.TogRE8YhlaUpyrwAbUm7hfvICEyWtELd4BKINTbuN3A`
+        //     }
+        // });
+
         clearTimeout(timeoutId);
 
         if (!response.ok) {
